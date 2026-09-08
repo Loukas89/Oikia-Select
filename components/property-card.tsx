@@ -1,14 +1,19 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Bath, BedDouble, Heart, Maximize2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Property, formatPrice } from "@/lib/properties";
 import { useFavorites } from "@/hooks/use-favorites";
+import { formatPrice, type Property } from "@/lib/properties";
 
-export function PropertyCard({ property }: { property: Property }) {
+type PropertyCardProps = {
+  property: Property;
+  eager?: boolean;
+};
+
+export function PropertyCard({ property, eager = false }: PropertyCardProps) {
   const { favorites, toggleFavorite } = useFavorites();
   const saved = favorites.includes(property.id);
 
@@ -19,13 +24,16 @@ export function PropertyCard({ property }: { property: Property }) {
           src={property.image}
           alt={property.title}
           fill
+          loading={eager ? "eager" : "lazy"}
           sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
         />
+
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-4">
           <Badge className="rounded-full bg-[#f8f5ef]/95 px-3 py-1 text-[#173b3f] shadow-sm hover:bg-[#f8f5ef]">
             {property.transaction}
           </Badge>
+
           <Button
             type="button"
             size="icon"
@@ -41,30 +49,37 @@ export function PropertyCard({ property }: { property: Property }) {
           </Button>
         </div>
       </div>
+
       <div className="p-5 sm:p-6">
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#9a7247]">
           {property.location}
         </p>
+
         <h3 className="mt-2 font-serif text-2xl leading-tight text-[#102f35]">
           {property.title}
         </h3>
+
         <p className="mt-4 text-xl font-semibold text-[#173b3f]">
           {formatPrice(property)}
         </p>
+
         <div className="mt-5 flex items-center gap-5 border-t border-[#173b3f]/10 pt-4 text-sm text-[#607277]">
           <span className="flex items-center gap-1.5">
             <BedDouble className="size-4" />
             {property.bedrooms}
           </span>
+
           <span className="flex items-center gap-1.5">
             <Bath className="size-4" />
             {property.bathrooms}
           </span>
+
           <span className="flex items-center gap-1.5">
             <Maximize2 className="size-4" />
             {property.size} m²
           </span>
         </div>
+
         <Button
           asChild
           variant="link"
