@@ -103,7 +103,7 @@ export const properties: Property[] = [
     size: 88,
     year: 2020,
     energyClass: "B+",
-    image: "https://images.unsplash.com/photo-1600566753151-8f6f3c7b6b74?auto=format&fit=crop&w=1400&q=85",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1400&q=85",
     gallery: [
       "https://images.unsplash.com/photo-1600585152915-d208bec867a1?auto=format&fit=crop&w=1400&q=85",
       "https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=1400&q=85",
