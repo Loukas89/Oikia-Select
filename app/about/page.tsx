@@ -88,7 +88,7 @@ export default function AboutPage() {
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=90"
               alt="Σύγχρονη κατοικία μέσα σε φυσικό τοπίο"
               fill
-              preload
+              fetchPriority="high"
               sizes="(min-width: 1024px) 55vw, 100vw"
               className="object-cover"
             />

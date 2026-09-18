@@ -16,17 +16,17 @@ export default function Home() {
   const featured = properties.filter((property) => property.featured);
   return (
     <main>
-      <section className="relative isolate min-h-760px overflow-hidden bg-[#102f35] text-white lg:min-h-820px">
+      <section className="relative isolate min-h-[760px] overflow-hidden bg-[#102f35] text-white lg:min-h-[820px]">
         <Image
           src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=2200&q=90"
           alt="Σύγχρονη κατοικία με κήπο"
           fill
-          preload
+          fetchPriority="high"
           sizes="100vw"
           className="-z-20 object-cover object-center"
         />
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgba(8,35,40,.93)_0%,rgba(8,35,40,.78)_45%,rgba(8,35,40,.18)_100%)]" />
-        <div className="mx-auto flex min-h-760px max-w-7xl items-center px-5 py-24 lg:min-h-820px lg:px-8">
+        <div className="mx-auto flex min-h-[760px] max-w-7xl items-center px-5 py-24 lg:min-h-[820px] lg:px-8">
           <div className="max-w-3xl">
             <p className="mb-6 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#e3c298]">
               <Sparkles className="size-4" /> Selected properties. Exceptional
@@ -159,7 +159,7 @@ export default function Home() {
 
       <section className="bg-[#f8f5ef] px-5 py-24 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-2 lg:items-center">
-          <div className="relative min-h-540px overflow-hidden rounded-[2.5rem]">
+          <div className="relative min-h-[540px] overflow-hidden rounded-[2.5rem]">
             <Image
               src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1400&q=85"
               alt="Εσωτερικό επιλεγμένης κατοικίας"
